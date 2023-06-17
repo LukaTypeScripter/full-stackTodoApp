@@ -1,3 +1,18 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    background-image: url(./images//bg-mobile-dark.jpg);
+    background-color: hsl(236, 33%, 92%);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: contain;
+    min-height: 100vh;
+    @media (min-width: 56.88rem){
+            background-image: url(./images//bg-desktop-dark.jpg);
+    }
+}
