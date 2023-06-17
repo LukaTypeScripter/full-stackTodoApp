@@ -26,3 +26,15 @@ module.exports.getToDo = async (req, res) => {
       res.status(500).json({ error: 'An error occurred while saving ToDo' });
     }
   };
+
+  module.exports.deleteToDo = async (req, res) => {
+    const { _id } = req.params;
+  
+    try {
+      await ToDoModel.findByIdAndDelete(_id);
+      res.send('Deleted successfully');
+    } catch (error) {
+      console.error('Error occurred while deleting ToDo:', error);
+      res.status(500).json({ error: 'An error occurred while deleting ToDo' });
+    }
+  };
