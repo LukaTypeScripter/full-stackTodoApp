@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import checkIcon from '../../images/icon-check.svg'
 export const Container = styled.main`
 width: inherit;
     min-height: inherit;
@@ -37,6 +37,13 @@ export const Main = styled.section`
     border-radius: 4px;
     margin-bottom: 1rem;
     }
+    @media (min-width: 56.88rem){
+
+        width: 35%;
+    padding: 3rem 0;
+    }
+
+
 
 `
 
@@ -115,6 +122,7 @@ export const Round = styled.span`
     border-radius: 50%;
     margin-right: 0.5rem;
    margin-top: 15px;
+   
 `
 export const AddInp = styled.input`
    -webkit-box-flex: 1;
@@ -143,14 +151,15 @@ export const AddInp = styled.input`
  `
 
  export const TodoCont = styled.div`
- 
+ -webkit-box-shadow: 1px 8px 10px var(--shadow-color), 2px 5px 7px var(--shadow-color), 1px 7px 4px var(--shadow-color);
+    box-shadow: 1px 8px 10px var(--shadow-color), 2px 5px 7px var(--shadow-color), 1px 7px 4px var(--shadow-color);
  `
 
 export const Todos = styled.ul`
 list-style: none;
 `
 
-export const TodoItem = styled.div`
+export const TodoItem = styled.div<{checked:boolean}>`
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -170,6 +179,13 @@ export const TodoItem = styled.div`
     padding: 0.5rem 0.5rem 0.5rem 1rem;
     -webkit-transition: all 500ms ease;
     transition: all 500ms ease;
+
+    text-decoration: ${props => props.checked ? "line-through" : ''};
+    -webkit-text-decoration-color: ${props => props.checked ? "	#424242" : ''};
+    text-decoration-color: ${props => props.checked ? "	#424242" : ''};
+    text-decoration-thickness: ${props => props.checked ? "	2px" : ''};
+    opacity: ${props => props.checked ? "	0.5" : ''};
+  
 `
 
 export const Label = styled.label`
@@ -194,6 +210,14 @@ export const Label = styled.label`
     border-radius: 50%;
     cursor: pointer;
     margin-top: 15px;
+    &:checked {
+        background-image: url(${checkIcon}), -webkit-gradient(linear, left top, left bottom, from(#57ddff), to(#c058f3));
+    background-image: url(${checkIcon}), linear-gradient(#57ddff, #c058f3);
+    background-repeat: no-repeat; 
+     background-position: center; 
+     width: 25px; 
+     height: 25px;
+    }
 `
 
 export const TodoLi = styled.li`
@@ -237,4 +261,12 @@ width: 0;
     opacity: 0;
     position: absolute;
     cursor: pointer;
+    &:checked {
+        background-image: url(${checkIcon}), -webkit-gradient(linear, left top, left bottom, from(#57ddff), to(#c058f3));
+    background-image: url(${checkIcon}), linear-gradient(#57ddff, #c058f3);
+     background-repeat: no-repeat; 
+    background-position: center; 
+     width: 25px; 
+     height: 25px;
+    }
 `
