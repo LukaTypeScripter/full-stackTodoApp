@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { DElateBtn, DelateImg, InpChecked, Label, Round, TodoCont, TodoItem, TodoLi } from '../styles/mainPage'
+import {     Round,    } from '../styles/mainPage'
 import { Todo } from '../MainPage'
 import cross from '../../images/icon-cross.svg'
+import { DElateBtn, DelateImg, InpChecked, Label, TodoCont, TodoItem, TodoLi } from './styles/todostyles'
 interface Props {
     todos:Todo[]
     toggleChecked: (index: number) => void

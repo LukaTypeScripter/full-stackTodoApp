@@ -1,7 +1,8 @@
 import React from 'react'
-import { Button, HeaderText, Img,Header } from '../styles/mainPage'
+import {Img } from '../styles/mainPage'
 import moon  from '../../images/icon-moon.svg'
 import ligth  from '../../images/icon-sun.svg'
+import { Button, Header, HeaderText } from './styles/headerStyles'
 interface Props {
     darkTheme:boolean
     setDarkTheme:React.Dispatch<React.SetStateAction<boolean>>

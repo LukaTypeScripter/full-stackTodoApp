@@ -1,5 +1,6 @@
 import React from 'react'
-import { AddInp, Form, Round } from '../styles/mainPage'
+import {  Round } from '../styles/mainPage'
+import { AddInp, Form } from './styles/fromCompStyles'
 interface Props {
     newTodoText:string
     setNewTodoText:React.Dispatch<React.SetStateAction<string>>
