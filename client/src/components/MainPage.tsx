@@ -1,7 +1,5 @@
-import { AddInp, AddTodo, Button, Container, DElateBtn, DelateImg, Form, Header, HeaderText, Img, InpChecked, Label, Main, Round, TodoCont, TodoItem, TodoLi, Todos } from './styles/mainPage';
-import moon from '../images/icon-moon.svg'
-import ligth from '../images/icon-sun.svg'
-import cross from '../images/icon-cross.svg'
+import {  Container,  DragTExt,  Main, Todos } from './styles/mainPage';
+
 import { useEffect, useState } from 'react';
 import HeadersComp from './Header/Header';
 import FromComp from './FormComp/FromComp';
@@ -10,7 +8,7 @@ import TodoContComp from './TodoCOntComp/TodoContComp';
 export interface Todo {
   _id: string;
   text: string;
-  checked: boolean; // Add a 'checked' property to the Todo interface
+  checked: boolean; 
 }
 
 function MainPage() {
@@ -51,7 +49,6 @@ function MainPage() {
 
         if (response.ok) {
           const data = await response.json();
-          // Add the 'checked' property to the new todo item
           const newTodo: Todo = { ...data, checked: false };
           setTodos([...todos, newTodo]);
           setNewTodoText('');
@@ -92,9 +89,12 @@ function MainPage() {
        <FromComp newTodoText={newTodoText} setNewTodoText={setNewTodoText} addTodo={addTodo} darkTheme={darkTheme}/>
         <Todos>
         {/**todo cont */}
-        <TodoContComp todos={todos} toggleChecked={toggleChecked}  deleteTodo={deleteTodo} darkTheme={darkTheme}/>
+        <TodoContComp todos={todos} toggleChecked={toggleChecked}  deleteTodo={deleteTodo} darkTheme={darkTheme} setTodos={setTodos}/>
         </Todos>
+        <DragTExt>drag and drop</DragTExt>
+        <DragTExt>Made By Luka</DragTExt>
       </Main>
+      
     </Container>
   );
 }
