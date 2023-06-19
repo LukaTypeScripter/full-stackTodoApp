@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import checkIcon from '../../images/icon-check.svg'
-export const Container = styled.main`
+import mobileDark from '../../images/bg-mobile-dark.jpg'
+import mobileLight from '../../images/bg-mobile-light.jpg'
+
+import DekstopDark from '../../images/bg-desktop-dark.jpg'
+import DekstopLigth from '../../images/bg-desktop-light.jpg'
+export const Container = styled.main<{darkTheme:boolean}>`
 width: inherit;
     min-height: inherit;
     display: -webkit-box;
@@ -13,6 +18,14 @@ width: inherit;
     -ms-flex-align: center;
     align-items: center;
     min-height:100vh;
+    background-image: url(${props => props.darkTheme ? mobileDark : mobileLight});
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: contain;
+    background-color: ${props => props.darkTheme ? "hsl(235, 21%, 11%)" : "hsl(236, 33%, 92%)"};
+    @media (min-width: 56.88rem){
+            background-image: url(${props => props.darkTheme ? DekstopDark : DekstopLigth});
+    }
    
 `
 export const Main = styled.section`
@@ -94,7 +107,7 @@ export const Img = styled.img`
     height: 26px;
 `
 
-export const Form = styled.form`
+export const Form = styled.form<{darkTheme:boolean}>`
         display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: justify;
@@ -113,18 +126,21 @@ export const Form = styled.form`
    
     z-index: 999;
     background-color: white;
+    background-color: ${props => props.darkTheme ? "hsl(235, 21%, 11%)" : ""};
+
 `
 
-export const Round = styled.span`
+export const Round = styled.span<{darkTheme:boolean}>`
     width: 25px;
     height: 25px;
-    border: 2px solid #d2d3db;
+    border: 2px solid   ${props => props.darkTheme ? "hsl(233, 14%, 35%)" : "#d2d3db"};
     border-radius: 50%;
     margin-right: 0.5rem;
    margin-top: 15px;
+   background-color: ${props => props.darkTheme ? "hsl(235, 24%, 19%)" : ""};
    
 `
-export const AddInp = styled.input`
+export const AddInp = styled.input<{darkTheme:boolean}>`
    -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
@@ -135,6 +151,7 @@ export const AddInp = styled.input`
     padding: 0 0.5rem;
     outline: none;
     margin-top: 15px;
+    background-color: ${props => props.darkTheme ? "hsl(235, 21%, 11%)" : ""};
    
 `
  export const AddTodo = styled.button`
@@ -159,7 +176,7 @@ export const Todos = styled.ul`
 list-style: none;
 `
 
-export const TodoItem = styled.div<{checked:boolean}>`
+export const TodoItem = styled.div<{checked:boolean,darkTheme:boolean}>`
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -175,7 +192,7 @@ export const TodoItem = styled.div<{checked:boolean}>`
     flex-direction: row;
     height: 2.9rem;
     background-color:white;
-    border-bottom: 1px solid white;
+    
     padding: 0.5rem 0.5rem 0.5rem 1rem;
     -webkit-transition: all 500ms ease;
     transition: all 500ms ease;
@@ -185,10 +202,11 @@ export const TodoItem = styled.div<{checked:boolean}>`
     text-decoration-color: ${props => props.checked ? "	#424242" : ''};
     text-decoration-thickness: ${props => props.checked ? "	2px" : ''};
     opacity: ${props => props.checked ? "	0.5" : ''};
+    background-color: ${props => props.darkTheme ? "hsl(235, 21%, 11%)" : ""};
   
 `
 
-export const Label = styled.label`
+export const Label = styled.label<{darkTheme:boolean}>`
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -206,32 +224,39 @@ export const Label = styled.label`
     height: 25px;
     position: relative;
     background-color: white;
-    border: 1px solid white;
+    border: 1px solid ${props => props.darkTheme ? "hsl(235, 21%, 11%)":"white"};
     border-radius: 50%;
     cursor: pointer;
     margin-top: 15px;
+    background-color: ${props => props.darkTheme ? "hsl(235, 21%, 11%)" : ""};
     &:checked {
         background-image: url(${checkIcon}), -webkit-gradient(linear, left top, left bottom, from(#57ddff), to(#c058f3));
     background-image: url(${checkIcon}), linear-gradient(#57ddff, #c058f3);
     background-repeat: no-repeat; 
      background-position: center; 
-     width: 25px; 
+     width: 35px; 
      height: 25px;
     }
 `
 
-export const TodoLi = styled.li`
+export const TodoLi = styled.li<{darkTheme:boolean}>`
     -webkit-box-flex: 1;
     -ms-flex: 1 0 12.6rem;
     flex: 1 0 12.6rem;
     padding-left: 1rem;
-    color: gray;
+    color:${props => props.darkTheme ? "hsl(0, 0%, 26%)" : "hsl(0, 0%, 73%)"};
     font-size: 0.8rem;
     cursor: pointer;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     margin-top: 15px;
+    @media (min-width: 56.88rem){
+        font-size: 1rem;
+    }
+
+   
+
 `
 export const DElateBtn = styled.button`
     border: none;
