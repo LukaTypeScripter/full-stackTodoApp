@@ -99,10 +99,12 @@ list-style: none;
 `
 
 export const DragTExt = styled.p`
-margin-top: 2rem;
+margin-top: 6rem;
     text-align: center;
     color: hsl(236, 9%, 61%);
     opacity: 0.8;
     font-size: 0.9rem;
+    
+
 
 `
