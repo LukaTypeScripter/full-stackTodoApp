@@ -48,7 +48,6 @@ export const Main = styled.section`
     *{
         width: 100%;
     border-radius: 4px;
-    margin-bottom: 1rem;
     }
     @media (min-width: 56.88rem){
 
@@ -76,6 +75,7 @@ export const Header = styled.header`
     flex-direction: row;
     padding-top: 0.3rem;
     background-color: transparent;
+    margin-bottom: 20px;
 `
 
 export const HeaderText = styled.h1`
@@ -84,6 +84,9 @@ font-size: 1.8rem;
     text-transform: uppercase;
     letter-spacing: 7px;
     color: white;
+    @media (min-width: 56.88rem){
+        font-size: 2.2rem;
+    }
 `
 export const Button = styled.button`
     border: none;
@@ -123,21 +126,35 @@ export const Form = styled.form<{darkTheme:boolean}>`
     color: var(hsl(0, 0%, 98%));
     height: 2.9rem;
     padding: 0.5rem 0rem 0.5rem 1rem;
-   
+    margin-bottom: 25px;
     z-index: 999;
     background-color: white;
     background-color: ${props => props.darkTheme ? "hsl(235, 21%, 11%)" : ""};
+    @media (min-width: 56.88rem){
+        height: 3.5rem;
+    }
+   
+   
+
 
 `
 
-export const Round = styled.span<{darkTheme:boolean}>`
+export const Round = styled.span<{darkTheme:boolean,checked:boolean}>`
     width: 25px;
     height: 25px;
     border: 2px solid   ${props => props.darkTheme ? "hsl(233, 14%, 35%)" : "#d2d3db"};
     border-radius: 50%;
-    margin-right: 0.5rem;
-   margin-top: 15px;
+
    background-color: ${props => props.darkTheme ? "hsl(235, 24%, 19%)" : ""};
+ 
+   background-image: ${props =>
+    props.checked ? `url(${checkIcon}), -webkit-gradient(linear, left top, left bottom, from(#57ddff), to(#c058f3))` : ''};
+  background-image: ${props =>
+    props.checked ? `url(${checkIcon}), linear-gradient(#57ddff, #c058f3)` : ''};
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 25px;
+  height: 25px;
    
 `
 export const AddInp = styled.input<{darkTheme:boolean}>`
@@ -150,7 +167,7 @@ export const AddInp = styled.input<{darkTheme:boolean}>`
     font-size: 1rem;
     padding: 0 0.5rem;
     outline: none;
-    margin-top: 15px;
+ 
     background-color: ${props => props.darkTheme ? "hsl(235, 21%, 11%)" : ""};
    
 `
@@ -164,7 +181,7 @@ export const AddInp = styled.input<{darkTheme:boolean}>`
     font-size: 2.5rem;
     font-weight: 400;
     color: black;
-    margin-top: 15px;
+
  `
 
  export const TodoCont = styled.div`
@@ -196,13 +213,19 @@ export const TodoItem = styled.div<{checked:boolean,darkTheme:boolean}>`
     padding: 0.5rem 0.5rem 0.5rem 1rem;
     -webkit-transition: all 500ms ease;
     transition: all 500ms ease;
-
+    border-bottom: 1px solid ${props => props.darkTheme ? "hsl(233, 14%, 35%)" : "hsl(233, 11%, 84%)"};
     text-decoration: ${props => props.checked ? "line-through" : ''};
     -webkit-text-decoration-color: ${props => props.checked ? "	#424242" : ''};
     text-decoration-color: ${props => props.checked ? "	#424242" : ''};
     text-decoration-thickness: ${props => props.checked ? "	2px" : ''};
     opacity: ${props => props.checked ? "	0.5" : ''};
     background-color: ${props => props.darkTheme ? "hsl(235, 21%, 11%)" : ""};
+    @media (min-width: 56.88rem){
+        height: 3.5rem;
+    }
+
+  
+
   
 `
 
@@ -227,16 +250,18 @@ export const Label = styled.label<{darkTheme:boolean}>`
     border: 1px solid ${props => props.darkTheme ? "hsl(235, 21%, 11%)":"white"};
     border-radius: 50%;
     cursor: pointer;
-    margin-top: 15px;
+
     background-color: ${props => props.darkTheme ? "hsl(235, 21%, 11%)" : ""};
-    &:checked {
-        background-image: url(${checkIcon}), -webkit-gradient(linear, left top, left bottom, from(#57ddff), to(#c058f3));
-    background-image: url(${checkIcon}), linear-gradient(#57ddff, #c058f3);
-    background-repeat: no-repeat; 
-     background-position: center; 
-     width: 35px; 
-     height: 25px;
-    }
+    width: 26px;
+    height: 26px;
+    background-color: hsl(0, 0%, 98%);
+    border-radius: 50%;
+/* &:hover{
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#57ddff), to(#c058f3));
+    background-image: linear-gradient(#57ddff, #c058f3);
+} */
+
+
 `
 
 export const TodoLi = styled.li<{darkTheme:boolean}>`
@@ -244,13 +269,13 @@ export const TodoLi = styled.li<{darkTheme:boolean}>`
     -ms-flex: 1 0 12.6rem;
     flex: 1 0 12.6rem;
     padding-left: 1rem;
-    color:${props => props.darkTheme ? "hsl(0, 0%, 26%)" : "hsl(0, 0%, 73%)"};
+    color:${props => props.darkTheme ? "hsl(0, 0%, 73%)" : "hsl(0, 0%, 26%)" };
     font-size: 0.8rem;
     cursor: pointer;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    margin-top: 15px;
+
     @media (min-width: 56.88rem){
         font-size: 1rem;
     }
@@ -273,11 +298,11 @@ export const DElateBtn = styled.button`
     -ms-flex-align: center;
     align-items: center;
     background-color: transparent;
-    margin-top: 15px;
+   
 `
 export const DelateImg = styled.img`
     width: 15px;
-    margin-top: 15px;
+  
 `
 
 export const InpChecked = styled.input`
@@ -294,4 +319,13 @@ width: 0;
      width: 25px; 
      height: 25px;
     }
+`
+
+export const DragTExt = styled.p`
+margin-top: 2rem;
+    text-align: center;
+    color: hsl(236, 9%, 61%);
+    opacity: 0.8;
+    font-size: 0.9rem;
+
 `

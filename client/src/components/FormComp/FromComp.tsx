@@ -10,7 +10,7 @@ function FromComp(p:Props) {
     const {newTodoText,setNewTodoText,addTodo,darkTheme} = p;
   return (
     <Form darkTheme={darkTheme}>
-          <Round darkTheme={darkTheme}></Round>
+          <Round darkTheme={darkTheme} checked={false}></Round>
           <AddInp
           darkTheme={darkTheme}
             type="text"
