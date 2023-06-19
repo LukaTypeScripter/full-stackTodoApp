@@ -4,13 +4,15 @@ interface Props {
     newTodoText:string
     setNewTodoText:React.Dispatch<React.SetStateAction<string>>
     addTodo:(e: React.KeyboardEvent<HTMLInputElement>) => Promise<void>
+    darkTheme:boolean
 }
 function FromComp(p:Props) {
-    const {newTodoText,setNewTodoText,addTodo} = p;
+    const {newTodoText,setNewTodoText,addTodo,darkTheme} = p;
   return (
-    <Form>
-          <Round></Round>
+    <Form darkTheme={darkTheme}>
+          <Round darkTheme={darkTheme}></Round>
           <AddInp
+          darkTheme={darkTheme}
             type="text"
             placeholder="create new todo"
             value={newTodoText}
