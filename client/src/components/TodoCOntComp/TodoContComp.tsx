@@ -6,23 +6,24 @@ interface Props {
     todos:Todo[]
     toggleChecked: (index: number) => void
     deleteTodo: (todoId: string) => Promise<void>
+    darkTheme:boolean
 }
 function TodoContComp(p:Props) {
-    const {todos,toggleChecked,deleteTodo} = p;
+    const {todos,toggleChecked,deleteTodo,darkTheme} = p;
   return (
     <TodoCont>
           
             {todos.map((todo, index) => (
-              <TodoItem key={todo._id} checked={todo.checked}>
-                <Label>
+              <TodoItem key={todo._id} checked={todo.checked} darkTheme={darkTheme}>
+                <Label darkTheme={darkTheme}>
                   <InpChecked
                     type="checkbox"
                     checked={todo.checked}
                     onChange={() => toggleChecked(index)}
                   />
-                  <Round></Round>
+                  <Round darkTheme={darkTheme}></Round>
                 </Label>
-                <TodoLi>{todo.text}</TodoLi>
+                <TodoLi darkTheme={darkTheme}>{todo.text}</TodoLi>
                 <DElateBtn>
                   <DelateImg
                     src={cross}
