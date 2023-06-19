@@ -85,14 +85,14 @@ function MainPage() {
   };
 
   return (
-    <Container>
+    <Container darkTheme={darkTheme}>
       <Main>
        <HeadersComp darkTheme={darkTheme} setDarkTheme={setDarkTheme}/>
         {/**form */}
-       <FromComp newTodoText={newTodoText} setNewTodoText={setNewTodoText} addTodo={addTodo}/>
+       <FromComp newTodoText={newTodoText} setNewTodoText={setNewTodoText} addTodo={addTodo} darkTheme={darkTheme}/>
         <Todos>
         {/**todo cont */}
-        <TodoContComp todos={todos} toggleChecked={toggleChecked}  deleteTodo={deleteTodo}/>
+        <TodoContComp todos={todos} toggleChecked={toggleChecked}  deleteTodo={deleteTodo} darkTheme={darkTheme}/>
         </Todos>
       </Main>
     </Container>
